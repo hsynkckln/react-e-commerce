@@ -1,4 +1,9 @@
-export default function Example() {
+import { Link } from "react-router-dom";
+
+import { useEffect } from "react";
+
+export default function PromoSection() {
+  
   return (
     <div className="relative overflow-hidden bg-white mt-5 ">
       <div className="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
@@ -80,12 +85,13 @@ export default function Example() {
                 </div>
               </div>
 
-              <a
+              
+              {/* <a
                 href="#"
                 className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
               >
                 Shop Collection
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
