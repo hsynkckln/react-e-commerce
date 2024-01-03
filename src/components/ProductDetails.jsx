@@ -3,33 +3,13 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
-
-// function ProductDetails() {
-//   const { id } = useParams();
-//   const [details, setDetails] = useState(null);
-//   useEffect(() => {
-//     axios(`https://dummyjson.com/products/${id}`)
-//       .then((res) => res.data)
-//       .then((data) => {
-//         setDetails(data);
-//         console.log(data);
-//       });
-//   }, [id]);
-
-//   return(
-//     <div>
-//       {
-//         details &&(
-//           <div>{details.brand}</div>
-//         )
-//       }
-//     </div>
-//   )
-// }
+import { useCommerce } from "../context/CommerceProvider";
+import { data } from "autoprefixer";
 
 function ProductDetails() {
   const { id } = useParams();
   const [details, setDetails] = useState(null);
+  const {basket,setBasket}=useCommerce();
   useEffect(() => {
     axios(`https://dummyjson.com/products/${id}`)
       .then((res) => res.data)
@@ -51,8 +31,12 @@ function ProductDetails() {
     return classes.filter(Boolean).join(" ");
   }
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = (details) => {
+    console.log(details);
+    setBasket([...basket,details])
+    console.log(basket);
+    
+    
   };
 
   return (
@@ -103,13 +87,41 @@ function ProductDetails() {
                 style={{ fontSize: "30px" }}
                 details=" tracking-tight text-gray-900"
               >
-                {details.price}$
+                ${details.price}
               </p>
+              {/* Reviews */}
+              <div className="mt-6">
+                <h3 className="sr-only">Reviews</h3>
+                <div className="flex items-center">
+                  <div className="flex items-center">
+                    {[0, 1, 2, 3, 4].map((rating) => (
+                      <StarIcon
+                        key={rating}
+                        className={classNames(
+                          details.rating > rating
+                            ? "text-gray-900"
+                            : "text-gray-200",
+                          "h-5 w-5 flex-shrink-0"
+                        )}
+                        aria-hidden="true"
+                      />
+                    ))}
+                  </div>
+                  {/* <p className="sr-only">{details.rating} out of 5 stars</p>
+                  <a
+                    href={reviews.href}
+                    className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                  >
+                    {reviews.totalCount} reviews
+                  </a> */}
+                </div>
+              </div>
 
-              <form className="mt-10">
+              <div className="mt-10">
                 {/* Colors */}
 
-                {details.category == "smartphones" || details.category=="laptops" ? 
+                {details.category == "smartphones" ||
+                details.category == "laptops" ? (
                   <div>
                     <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
@@ -150,18 +162,18 @@ function ProductDetails() {
                       </div>
                     </RadioGroup>
                   </div>
-                  :
+                ) : (
                   ""
-                }
+                )}
 
                 <button
-                  onClick={handleClick}
+                  onClick={()=>handleClick(details)}
                   type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Sepete Ekle
                 </button>
-              </form>
+              </div>
             </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">

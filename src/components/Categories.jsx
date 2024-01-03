@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 const callouts = [
   {
-    name: "smartphones",
+    name: "Smartphones",
     description: "Work from home accessories",
     imageSrc:
     "https://i.dummyjson.com/data/products/1/1.jpg",
@@ -11,7 +11,7 @@ const callouts = [
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
   },
   {
-    name: "laptops",
+    name: "Laptops",
     description: "Journals and note-taking",
     imageSrc:
     "https://i.dummyjson.com/data/products/6/1.png",
@@ -19,21 +19,21 @@ const callouts = [
       "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
   },
   {
-    name: "skincare",
+    name: "Skincare",
     description: "Daily commute essentials",
     imageSrc:
     "https://i.dummyjson.com/data/products/19/1.jpg",
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
   },
   {
-    name: "fragrances",
+    name: "Fragrances",
     description: "Daily commute essentials",
     imageSrc:
     "https://i.dummyjson.com/data/products/11/1.jpg",
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
   },
   {
-    name: "groceries",
+    name: "Groceries",
     description: "Daily commute essentials",
     imageSrc:
       
@@ -41,7 +41,7 @@ const callouts = [
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
   },
   {
-    name: "home-decoration",
+    name: "Home-Decoration",
     description: "Daily commute essentials",
     imageSrc:
       
@@ -64,7 +64,7 @@ export default function Categories() {
           
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
             {callouts.map((callout) => (
-              <Link to={`/categoryDetails/${callout.name}`}>
+              <Link style={{textDecoration:"none"}} to={`/categoryDetails/${callout.name}`}>
                 <div key={callout.name} className="group relative">
                   <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
                     <div>
@@ -74,8 +74,7 @@ export default function Categories() {
                       />
                     </div>
                   </div>
-                  <div className="mt-6 text-1xl text-gray-900">
-                    <span className="absolute inset-0" />
+                  <div className="mt-6 text-xl text-gray-900">
                     {callout.name}
                   </div>
                 </div>

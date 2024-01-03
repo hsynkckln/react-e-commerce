@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div style={{backgroundColor:"black"}}>
+    <div style={{backgroundColor:"black",position:"relative",bottom:"0",width:"100%"}}>
       <footer className="container py-5">
         <div className="row">
           <div className="col-12 col-md">
@@ -28,7 +28,7 @@ function Footer() {
           </div>
           <div className="col-6 col-md">
             <h5 style={{color:"white"}}>Features</h5>
-            <ul className="list-unstyled text-small">
+            <ul style={{color:"gray"}} className="list-unstyled text-small">
               <li  >
                 <a className="link-secondary text-decoration-none" href="#">
                   Cool stuff
@@ -63,7 +63,7 @@ function Footer() {
           </div>
           <div className="col-6 col-md">
             <h5 style={{color:"white"}}>Resources</h5>
-            <ul className="list-unstyled text-small">
+            <ul style={{color:"gray"}} className="list-unstyled text-small">
               <li>
                 <a className="link-secondary text-decoration-none" href="#">
                   Resource name
@@ -88,7 +88,7 @@ function Footer() {
           </div>
           <div className="col-6 col-md">
             <h5 style={{color:"white"}}>Resources</h5>
-            <ul className="list-unstyled text-small">
+            <ul style={{color:"gray"}} className="list-unstyled text-small">
               <li>
                 <a className="link-secondary text-decoration-none" href="#">
                   Business
@@ -113,7 +113,7 @@ function Footer() {
           </div>
           <div className="col-6 col-md">
             <h5 style={{color:"white"}}>About</h5>
-            <ul className="list-unstyled text-small">
+            <ul style={{color:"gray"}} className="list-unstyled text-small">
               <li>
                 <a className="link-secondary text-decoration-none" href="#">
                   Team
